@@ -37,7 +37,7 @@ flash_attn_interface = DummyFlashAttn()
 # torch._inductor.config.coordinate_descent_tuning = True # we have banned this flag for new records because it causes compilation to take 30min
 import triton
 import triton.language as tl
-from kernels import get_kernel
+# from kernels import get_kernel
 from torch import Tensor, nn
 
 dynamo.config.recompile_limit = 64
