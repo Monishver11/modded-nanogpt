@@ -1,6 +1,6 @@
+torch
 numpy
 tqdm
-torch
 huggingface-hub
 kernels
 flash-attn
