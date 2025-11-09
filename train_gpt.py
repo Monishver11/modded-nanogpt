@@ -798,7 +798,7 @@ class AttnArgs:
     sin: torch.Tensor
     attn_scale: float
 
-flash_attn_interface = get_kernel('varunneal/flash-attention-3').flash_attn_interface
+flash_attn_interface = get_kernel('varunneal/flash-attention-2').flash_attn_interface
 
 class CausalSelfAttention(nn.Module):
     def __init__(self, dim: int, head_dim: int, num_heads: int):
