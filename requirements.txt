@@ -3,4 +3,3 @@ numpy
 tqdm
 huggingface-hub
 kernels
-flash-attn
