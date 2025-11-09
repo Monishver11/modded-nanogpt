@@ -1368,14 +1368,15 @@ def step_optimizers(step: int, optimizers, model):
             optimizer.step()
         model.zero_grad(set_to_none=True)
 
-model: nn.Module = torch.compile(model, dynamic=False, fullgraph=True)
+# model: nn.Module = torch.compile(model, dynamic=False, fullgraph=True)
+model = model  # disable compile for testing
 
 ########################################
 #            Warmup kernels            #
 ########################################
 
 # Warmup the training kernels, then re-initialize the state so we aren't cheating
-warmup_steps = 30
+warmup_steps = 1
 initial_state = dict(model=copy.deepcopy(model.state_dict()),
                      optimizers=[copy.deepcopy(opt.state_dict()) for opt in optimizers]) # save the initial state
 train_loader = distributed_data_generator(args.train_files, args.train_batch_size, args.train_max_seq_len, grad_accum_steps=grad_accum_steps)
